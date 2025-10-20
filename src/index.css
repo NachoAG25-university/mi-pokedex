@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados para el Pokédex */
+@layer base {
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 font-pokemon transition-colors duration-300;
+  }
+  
+  html {
+    @apply transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .pokemon-card-custom {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 w-full max-w-4xl mx-auto transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+  
+  @media (min-width: 1024px) {
+    .pokemon-card-custom {
+      @apply max-w-6xl;
+    }
+  }
+  
+  .pokemon-image-custom {
+    @apply w-48 h-48 bg-gray-100 rounded-full border-4 border-white shadow-md mx-auto;
+  }
+  
+  .search-input-custom {
+    @apply px-4 py-3 text-base border border-gray-300 rounded-lg w-64 focus:outline-none focus:ring-2 focus:ring-pokemon-blue focus:border-transparent;
+  }
+  
+  .search-button-custom {
+    @apply px-6 py-3 text-base font-medium text-white bg-pokemon-blue rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-pokemon-blue focus:ring-offset-2 transition-colors duration-200;
+  }
+  
+  .suggestion-item-custom {
+    @apply px-4 py-3 cursor-pointer text-left capitalize border-b border-gray-200 dark:border-gray-600 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700 flex items-center gap-3 transition-colors duration-200;
+  }
+
+  /* Animaciones de transición */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    70% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Estilos para multiplicadores de efectividad */
+  .effectiveness-multiplier {
+    @apply font-mono font-bold text-sm;
+  }
+
+  .multiplier-x4 {
+    @apply text-red-600 dark:text-red-400;
+  }
+
+  .multiplier-x2 {
+    @apply text-orange-600 dark:text-orange-400;
+  }
+
+  .multiplier-x05 {
+    @apply text-green-600 dark:text-green-400;
+  }
+
+  .multiplier-x025 {
+    @apply text-blue-600 dark:text-blue-400;
+  }
+
+  .multiplier-x0 {
+    @apply text-gray-600 dark:text-gray-400;
+  }
+}
